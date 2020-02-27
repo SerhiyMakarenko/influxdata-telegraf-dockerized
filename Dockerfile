@@ -21,5 +21,5 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" && \
     curl -1sLf 'http://raspbian.raspberrypi.org/raspbian.public.key' | apt-key add - && \
     echo 'deb http://raspbian.raspberrypi.org/raspbian/ stretch main firmware contrib non-free rpi' > /etc/apt/sources.list.d/rpi.list && \
     apt-get update && \
-    apt-get install -y --no-install-recommends --no-install-suggests libraspberrypi-bin && \
-    rm -rf /var/lib/apt/lists/* ; fi
+    apt-get install -y --no-install-recommends --no-install-suggests libraspberrypi-bin ; fi && \
+    rm -rf /var/lib/apt/lists/*
