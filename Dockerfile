@@ -12,13 +12,12 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" && \
     case "${dpkgArch##*-}" in \
       amd64) ARCH='amd64';; \
-      arm64) ARCH='arm64';; \
       armhf) ARCH='armhf';; \
       armel) ARCH='armel';; \
       *)     echo "Unsupported architecture: ${dpkgArch}"; exit 1;; \
     esac && \
     if [ "$ARCH" = "amd64" ] ; then apt-get update && apt-get install -y --no-install-recommends --no-install-suggests smartmontools ; fi && \
-    if [ "$ARCH" = "arm64" ] || [ "$ARCH" = "armhf" ] || [ "$ARCH" = "armel" ]; then \
+    if [ "$ARCH" = "armhf" ] || [ "$ARCH" = "armel" ]; then \
     curl -1sLf 'http://raspbian.raspberrypi.org/raspbian.public.key' | apt-key add - && \
     echo 'deb http://raspbian.raspberrypi.org/raspbian/ stretch main firmware contrib non-free rpi' > /etc/apt/sources.list.d/rpi.list && \
     apt-get update && \

@@ -16,10 +16,11 @@ For x86_64 CPU I have added the following tools:
 Currently, the image supports the following CPU architectures:
  - x86_64 (amd64);
  - armhf (arm32v6);
- - armel (arm32v5);
- - arm64 (arm64v8).
+ - armel (arm32v5).
 
 This means that the image can be used on regular PC's with Intel CPU as well as on single-board computers like Raspberry Pi with ARM CPU.
+
+Where arm64 support, you can ask. Well, since Raspbian official builds have no support of ARM 64-bit architecture there are no easy ways to get `libraspberrypi-bin` with arm64 support.
 
 # Usage
 Unfortunately, there is no way to get SATA/ATA drives access without `CAP_SYS_RAWIO` permissions, so the container should be run with privileged mode. To run container you need to execute command listed below:
