@@ -30,11 +30,11 @@ RUN HOST_ARCH="$(uname -m)" && \
         gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
         gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
     done && \
-    wget --no-verbose https://dl.influxdata.com/telegraf/releases/telegraf-${TELEGRAF_VERSION}-static_linux_${PKG_ARCH}.tar.gz.asc && \
-    wget --no-verbose https://dl.influxdata.com/telegraf/releases/telegraf-${TELEGRAF_VERSION}-static_linux_${PKG_ARCH}.tar.gz && \
-    gpg --batch --verify telegraf-${TELEGRAF_VERSION}-static_linux_${PKG_ARCH}.tar.gz.asc telegraf-${TELEGRAF_VERSION}-static_linux_${PKG_ARCH}.tar.gz && \
+    wget --no-verbose https://dl.influxdata.com/telegraf/releases/telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz.asc && \
+    wget --no-verbose https://dl.influxdata.com/telegraf/releases/telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz && \
+    gpg --batch --verify telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz.asc telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz && \
     mkdir -p /usr/src /etc/telegraf && \
-    tar -C /usr/src -xzf telegraf-${TELEGRAF_VERSION}-static_linux_${PKG_ARCH}.tar.gz && \
+    tar -C /usr/src -xzf telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz && \
     mv /usr/src/telegraf*/telegraf.conf /etc/telegraf/ && \
     chmod +x /usr/src/telegraf*/* && \
     cp -a /usr/src/telegraf*/* /usr/bin/ && \
