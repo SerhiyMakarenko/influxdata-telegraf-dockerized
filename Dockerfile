@@ -16,7 +16,7 @@ RUN HOST_ARCH="$(uname -m)" && \
       *)       echo "Unsupported architecture: ${HOST_ARCH}"; exit 1;; \
     esac && \
     if [ "$PKG_ARCH" = "amd64" ] ; then \
-      apk add --no-cache iputils ca-certificates net-snmp-tools procps lm_sensors tzdata smartmontools sudo ; \
+      apk add --no-cache iputils ca-certificates net-snmp-tools procps lm_sensors tzdata libc6-compat smartmontools sudo ; \
     elif [ "$PKG_ARCH" = "armhf" ] || [ "$PKG_ARCH" = "arm64" ] ; then \
       apk add --no-cache iputils ca-certificates net-snmp-tools procps lm_sensors tzdata raspberrypi; \
     fi && \
