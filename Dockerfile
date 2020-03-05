@@ -35,9 +35,8 @@ RUN HOST_ARCH="$(uname -m)" && \
     gpg --batch --verify telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz.asc telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz && \
     mkdir -p /usr/src /etc/telegraf && \
     tar -C /usr/src -xzf telegraf-${TELEGRAF_VERSION}_linux_${PKG_ARCH}.tar.gz && \
-    mv /usr/src/telegraf*/telegraf.conf /etc/telegraf/ && \
-    chmod +x /usr/src/telegraf*/* && \
-    cp -a /usr/src/telegraf*/* /usr/bin/ && \
+    mv /usr/src/telegraf/etc/telegraf/telegraf.conf /etc/telegraf/ && \
+    mv /usr/src/telegraf/usr/bin/telegraf /usr/bin/ && \
     rm -rf *.tar.gz* /usr/src /root/.gnupg && \
     apk del .build-deps
 
