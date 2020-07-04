@@ -2,10 +2,10 @@
 #
 # Copyright (c) 2020, Serhiy Makarenko
 
-FROM alpine:3.9
+FROM alpine:3.12
 LABEL maintainer="serhiy.makarenko@me.com"
 
-ENV TELEGRAF_VERSION=1.14.3
+ENV TELEGRAF_VERSION=1.14.4
 
 RUN echo 'hosts: files dns' >> /etc/nsswitch.conf
 RUN HOST_ARCH="$(uname -m)" && \
