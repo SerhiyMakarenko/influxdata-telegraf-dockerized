@@ -5,7 +5,7 @@
 FROM alpine:3.12
 LABEL maintainer="serhiy.makarenko@me.com"
 
-ENV TELEGRAF_VERSION=1.14.4
+ENV TELEGRAF_VERSION=1.14.5
 
 RUN echo 'hosts: files dns' >> /etc/nsswitch.conf
 RUN HOST_ARCH="$(uname -m)" && \
